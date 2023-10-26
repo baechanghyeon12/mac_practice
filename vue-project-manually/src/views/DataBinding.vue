@@ -65,7 +65,31 @@
     <br>
     <span>체크한 지역: {{ checked2 }}</span>
   </div>
+
+  <!-- 라디오버튼 input type="radio" v-bind:value를 사용하여 바인딩한다 -->
+  <div>
+    <label for=""><input type="radio" v-bind:value="radioValue1" v-model="picked">
+      서울
+    </label>
+    <label for=""><input type="radio" v-bind:value="radioValue2" v-model="picked">
+      부산
+    </label>
+    <label for=""><input type="radio" v-bind:value="radioValue3" v-model="picked">
+      제주
+    </label>
+    <br>
+    <span>선택한 지역: {{ picked }}</span>
+  </div>
 <!-- **************************************** Form 입력 데이터 바인딩 **************************************** -->
+
+<!-- 이미지(img) 객체의 src v-bind:src를 사용하여 바인딩 -->
+<div><img v-bind:src="imgSrc"></div>
+
+<!-- button 객체의 disaabled 특정한 조건이 true일 때 버튼을 비활성화 시킨다. -->
+<div>
+  <input type="text" v-model="textValue">
+  <button type="button" v-bind:disabled="textValue == ''">Click</button>
+</div>
 </template>
 <script>
 export default {
@@ -81,7 +105,13 @@ export default {
       city: '064',
       checked: true,
       checked1: 'no',
-      checked2: []
+      checked2: [],
+      radioValue1: '서울',
+      radioValue2: '부산',
+      radioValue3: '제주',
+      picked: '',
+      imgSrc: 'https://kr.vuejs.org/images/logo.png',
+      textValue: ''
     }
   },
   methods: {}
