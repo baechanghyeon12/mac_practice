@@ -90,6 +90,50 @@
   <input type="text" v-model="textValue">
   <button type="button" v-bind:disabled="textValue == ''">Click</button>
 </div>
+
+<!-- 클래스 바인딩 v-bind:class -->
+<!-- 특정 조건에 따른 바인딩 처리를 true/false로 가능 -->
+<div class="container" v-bind:class="{'active': isActive, 'text-red': hasError}">Class Binding</div>
+
+<!-- 인라인 스타일 바인딩 -->
+<!-- 데이터를 오브젝트로 선언해서 바인딩할 수 있다. -->
+<div v-bind:style="styleObject">인라인 스타일 바인딩</div>
+
+<!-- 인라인 스타일 배열로 바인딩 -->
+<div v-bind:style="[baseStyle, addStyle]">인라인 스타일 바인딩</div>
+
+<!-- 리스트 랜더링(v-for) -->
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>제품명</th>
+        <th>가격</th>
+        <th>카테고리</th>
+        <th>배송료</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr :key="i" v-for="(product, i) in productList">
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.delivery_price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- v-if, v-show -->
+<!-- v-if와 v-show의 차이점 -->
+<!-- v-if는 조건에 맞아야 생성 및 삭제 -->
+<!-- v-show는 일단 생성후에 조건에 따라 표시 및 숨김 -->
+<!-- 자주 toggle이 되는 블록이면 v-show를 사용하고 빈도가 적으면 v-if를 사용하는것이 좋다. -->
+<div>
+  <h1 v-if="type == 'A'">A</h1>
+  <h1 v-else-if="type == 'B'">B</h1>
+  <h1 v-else>C</h1>
+  <h1 v-show="type == 'A'">AA</h1>
+</div>
 </template>
 <script>
 export default {
@@ -111,9 +155,48 @@ export default {
       radioValue3: '제주',
       picked: '',
       imgSrc: 'https://kr.vuejs.org/images/logo.png',
-      textValue: ''
+      textValue: '',
+      isActive: true,
+      hasError: false,
+      styleObject: {
+        color: 'red',
+        fontSize: '13px'
+      },
+      baseStyle: 'background-color:green; width:100%;height:200px;',
+      addStyle: 'color:white; font-weight:bold;',
+      productList: [
+        { product_name: '기계식키보드', price: 25000, category: '노트북/테블릿', delivery_price: 5000 },
+        { product_name: '무선마우스', price: 12000, category: '노트북/테블릿', delivery_price: 5000 },
+        { product_name: '아이패드', price: 725000, category: '노트북/테블릿', delivery_price: 5000 },
+        { product_name: '태블릿거치대', price: 32000, category: '노트북/테블릿', delivery_price: 5000 },
+        { product_name: '무선충전기', price: 42000, category: '노트북/테블릿', delivery_price: 5000 }
+      ],
+      type: 'A'
     }
   },
   methods: {}
 }
 </script>
+<style>
+  .container {
+    width: 100%;
+    height: 200px;
+  }
+  .active {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  .text-red{
+    color:red;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+</style>
