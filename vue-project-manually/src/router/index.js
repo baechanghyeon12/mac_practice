@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DataBinding from '../views/DataBinding.vue'
 import DataEvent from '../views/DataEvent.vue'
+import AxiosView from '../views/AxiosView.vue'
+import NestedComponent from '../views/NestedComponent.vue'
 
 const routes = [
   {
@@ -27,6 +29,16 @@ const routes = [
     path: '/dataevent',
     name: 'DataEvent',
     component: DataEvent
+  },
+  {
+    path: '/axiosview',
+    name: 'AxiosView',
+    component: AxiosView
+  },
+  {
+    path: '/nested',
+    name: 'Nested',
+    component: NestedComponent
   }
 ]
 

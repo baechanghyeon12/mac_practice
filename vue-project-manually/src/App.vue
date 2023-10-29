@@ -2,7 +2,10 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/databinding">Data Binding</router-link> |
-    <router-link to="/dataevent">Data Event</router-link>
+    <router-link to="/dataevent">Data Event</router-link> |
+    <router-link to="/AxiosView">Axios</router-link> |
+    <router-link to="/nested">Nested</router-link> |
+
   </nav>
   <router-view />
 </template>
