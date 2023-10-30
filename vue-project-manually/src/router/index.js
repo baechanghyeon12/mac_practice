@@ -4,7 +4,8 @@ import DataBinding from '../views/DataBinding.vue'
 import DataEvent from '../views/DataEvent.vue'
 import AxiosView from '../views/AxiosView.vue'
 import NestedComponent from '../views/NestedComponent.vue'
-
+import KakaoLogin from '../views/KakaoLogin.vue'
+import Login from '../views/Login.vue'
 const routes = [
   {
     path: '/',
@@ -39,6 +40,16 @@ const routes = [
     path: '/nested',
     name: 'Nested',
     component: NestedComponent
+  },
+  {
+    path: '/kakaologin',
+    name: 'KakaoLogin',
+    component: KakaoLogin
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 

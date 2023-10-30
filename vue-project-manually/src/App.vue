@@ -5,6 +5,8 @@
     <router-link to="/dataevent">Data Event</router-link> |
     <router-link to="/AxiosView">Axios</router-link> |
     <router-link to="/nested">Nested</router-link> |
+    <router-link to="/kakaologin">Kakao Login</router-link> |
+    <router-link to="/login">로그인</router-link> |
 
   </nav>
   <router-view />
