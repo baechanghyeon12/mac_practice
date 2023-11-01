@@ -55,7 +55,7 @@ export default {
       this.$router.push({path:'/create'});
     },
     goToDetail(product_id) {
-     this.$router.push({path:'/detail', query:{product_id:product_id}}); 
+    this.$router.push({path:'/detail', query:{product_id:product_id}}); 
     },
     goToUpdate(product_id) {
       this.$router.push({path:'/update', query:{product_id:product_id}}); 
